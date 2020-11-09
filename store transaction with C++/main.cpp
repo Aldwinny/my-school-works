@@ -18,11 +18,14 @@ string code[3][2] = {{"GTX 1650 super", "RX 570"}, {"Intel i3 9th gen", "Intel i
 
 //Integer array for the cart
 int cartValue[6] = {0, 0, 0, 0, 0, 0};
+float prices[6] = {147, 1, 1, 1, 1, 1};
 
 main()
 {
     bool loopControl = true;
     int choice;
+
+    addToCart(code[0][0], 3);
 
     while (loopControl)
     {
@@ -231,22 +234,22 @@ void cart()
                 switch (i)
                 {
                 case 0:
-                    cout << code[0][0].substr(0, 3) << "           " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                    cout << code[0][0].substr(0, 3) << "           " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
                     break;
                 case 1:
-                    cout << code[0][1].substr(0, 3) << "           " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                    cout << code[0][1].substr(0, 3) << "           " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
                     break;
                 case 2:
-                    cout << code[1][0].substr(0, 8) << "      " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                    cout << code[1][0].substr(0, 8) << "      " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
                     break;
                 case 3:
-                    cout << code[1][1].substr(0, 8) << "      " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                    cout << code[1][1].substr(0, 8) << "      " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
                     break;
                 case 4:
-                    cout << code[2][0].substr(0, 4) << "          " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                    cout << code[2][0].substr(0, 4) << "          " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
                     break;
                 case 5:
-                    cout << code[2][1].substr(0, 4) << "          " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                    cout << code[2][1].substr(0, 4) << "          " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
                     break;
                 default:
                     break;
@@ -292,22 +295,22 @@ void receipt()
             switch (i)
             {
             case 0:
-                cout << code[0][0].substr(0, 3) << "           " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                cout << code[0][0].substr(0, 3) << "           " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
                 break;
             case 1:
-                cout << code[0][1].substr(0, 3) << "           " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                cout << code[0][1].substr(0, 3) << "           " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
                 break;
             case 2:
-                cout << code[1][0].substr(0, 8) << "      " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                cout << code[1][0].substr(0, 8) << "      " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
                 break;
             case 3:
-                cout << code[1][1].substr(0, 8) << "      " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                cout << code[1][1].substr(0, 8) << "      " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
                 break;
             case 4:
-                cout << code[2][0].substr(0, 4) << "          " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                cout << code[2][0].substr(0, 4) << "          " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
                 break;
             case 5:
-                cout << code[2][1].substr(0, 4) << "          " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                cout << code[2][1].substr(0, 4) << "          " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
                 break;
             default:
                 break;
