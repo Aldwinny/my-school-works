@@ -11,6 +11,7 @@ void moboStream();
 void cart();
 void receipt();
 void addToCart(string, int);
+void costFinder();
 void sanitizeInput();
 
 //List of items
@@ -18,18 +19,13 @@ const string code[3][2] = {{"GTX 1650 super", "RX 570"}, {"Intel i3 9th gen", "I
 
 //Integer array for the cart
 int cartValue[6] = {0, 0, 0, 0, 0, 0};
-const float prices[6] = {147, 1, 1, 1, 1, 1};
+float finalCost = 0;
+const float prices[6] = {9000, 7000, 3840, 10000, 3600, 18000};
 
 main()
 {
     bool loopControl = true;
     int choice;
-
-    addToCart(code[0][0], 3);
-    addToCart(code[1][0], 3);
-    addToCart(code[1][1], 5);
-    addToCart(code[2][0], 6);
-    addToCart(code[2][1], 7);
 
     while (loopControl)
     {
@@ -95,6 +91,7 @@ void gpuStream()
 {
     int choice;
     bool end = false;
+    int qty;
 
     cout << "***************************" << endl;
     cout << "*           GPU           *" << endl;
@@ -110,21 +107,62 @@ void gpuStream()
 
         switch (choice)
         {
-            /*
-            PSEUDOCODE
-            1. Display Specs of product
-            2. Ask User whether he/she buys
-                > IF BUY
-                    > ASK QUANTITY (HOW MANY?)
-                    > addToCart(gpuCode[INDEX], QUANTITY)
-                > ELSE
-                    > Break
-            */
+
         case 1:
-            // YOUR CODE HERE
+            cout << "\n* * * * * * * Specification * * * * * * * ";
+            cout << "\n*  Architecture : Turning Shaders       * ";
+            cout << "\n*  Boost Clock  : 1725mhz               * ";
+            cout << "\n*  Frame Buffer : 4GB GDDR6             * ";
+            cout << "\n*  Memory Speed : 12 Gbps               * ";
+            cout << "\n*         Price : Php 9000              * ";
+            cout << "\n* * * * * * * * * * * * * * * * * * * * * ";
+            cout << "\n Would you like to buy?";
+            cout << "\n[1] YES ";
+            cout << "\n[2] NO ";
+            cout << "\n>> ";
+            cin >> choice;
+            switch (choice)
+            {
+
+            case 1:
+                cout << "\nHow many?";
+                cout << "\n>> ";
+                cin >> qty;
+                addToCart(code[0][0], qty);
+                break;
+            case 2:
+                break;
+            default:
+                sanitizeInput();
+            }
             break;
         case 2:
-            // YOUR CODE HERE
+            cout << "\n* * * * * * * * Specification * * * * * * * * * *";
+            cout << "\n*  Engine Clock       : Up to 1284 Mhz, Boost   * ";
+            cout << "\n*  Stream Processors  : 2480                    * ";
+            cout << "\n*  Memory Size/Bus    : 8GB GDDR5/256-bit       * ";
+            cout << "\n*  Memory Clock       : 7000 Mhz                * ";
+            cout << "\n*         Price       : Php 7000                * ";
+            cout << "\n* * * * * * * * * * * * * * * * * * * * * * * * *";
+            cout << "\n Would you like to buy?";
+            cout << "\n[1] YES ";
+            cout << "\n[2] NO ";
+            cout << "\n>> ";
+            cin >> choice;
+            switch (choice)
+            {
+
+            case 1:
+                cout << "\n How many?";
+                cout << "\n>> ";
+                cin >> qty;
+                addToCart(code[0][1], qty);
+                break;
+            case 2:
+                break;
+            default:
+                sanitizeInput();
+            }
             break;
         case 3:
             end = true;
@@ -138,6 +176,7 @@ void gpuStream()
 void cpuStream()
 {
     int choice;
+    int qty;
     bool end = false;
 
     cout << "***************************" << endl;
@@ -154,21 +193,55 @@ void cpuStream()
 
         switch (choice)
         {
-        /*
-        PSEUDOCODE
-        1. Display Specs of product
-        2. Ask User whether he/she buys
-            > IF BUY
-            > ASK QUANTITY (HOW MANY?)
-                > addToCart(gpuCode[INDEX], QUANTITY)
-            > ELSE
-                > Break
-        */
         case 1:
-            // YOUR CODE HERE
+            cout << "\n* * * * * * * Specification * * * * * * * ";
+            cout << "\n*               NOT FOUND               * ";
+            cout << "\n*            Price: Php 3,840           * ";
+            cout << "\n* * * * * * * * * * * * * * * * * * * * * ";
+            cout << "\n Would you like to buy?";
+            cout << "\n[1] YES ";
+            cout << "\n[2] NO ";
+            cout << "\n>> ";
+            cin >> choice;
+            switch (choice)
+            {
+
+            case 1:
+                cout << "\nHow many?";
+                cout << "\n>> ";
+                cin >> qty;
+                addToCart(code[1][0], qty);
+                break;
+            case 2:
+                break;
+            default:
+                sanitizeInput();
+            }
             break;
         case 2:
-            // YOUR CODE HERE
+            cout << "\n* * * * * * * Specification * * * * * * * ";
+            cout << "\n*               NOT FOUND               * ";
+            cout << "\n*           Price: Php 10,000           * ";
+            cout << "\n* * * * * * * * * * * * * * * * * * * * * ";
+            cout << "\n Would you like to buy?";
+            cout << "\n[1] YES ";
+            cout << "\n[2] NO ";
+            cout << "\n>> ";
+            cin >> choice;
+            switch (choice)
+            {
+            case 1:
+                cout << "\nHow many?";
+                cout << "\n>> ";
+                cin >> qty;
+                addToCart(code[1][1], qty);
+                break;
+            case 2:
+                break;
+            default:
+                sanitizeInput();
+            }
+            break;
             break;
         case 3:
             end = true;
@@ -183,6 +256,7 @@ void moboStream()
 {
     int choice;
     bool end = false;
+    int qty;
 
     cout << "***************************" << endl;
     cout << "*       Motherboards      *" << endl;
@@ -190,29 +264,71 @@ void moboStream()
     do
     {
         cout << "Motherboards Section" << endl;
-        cout << "[1]" << code[2][0] << endl;
-        cout << "[2]" << code[2][1] << endl;
+        cout << "[1] " << code[2][0] << endl;
+        cout << "[2] " << code[2][1] << endl;
         cout << "[3] Exit" << endl;
         cout << ">> ";
         cin >> choice;
 
         switch (choice)
         {
-        /*
-        PSEUDOCODE
-        1. Display Specs of product
-        2. Ask User whether he/she buys
-            > IF BUY
-            > ASK QUANTITY (HOW MANY?)
-                > addToCart(gpuCode[INDEX], QUANTITY)
-            > ELSE
-                > Break
-        */
+
         case 1:
-            // YOUR CODE HERE
+            cout << "\n* * * * * * * Specification * * * * * * * ";
+            cout << "\n*           Micro-ATX Form Factor       * ";
+            cout << "\n*            AMD A320 Chipset           * ";
+            cout << "\n*                Socket AM4             * ";
+            cout << "\n*    2 x Dual-Channel DDR4-3200 (OC)    * ";
+            cout << "\n*            Price: Php 18,000          * ";
+            cout << "\n* * * * * * * * * * * * * * * * * * * * * ";
+            cout << "\n Would you like to buy?";
+            cout << "\n[1] YES ";
+            cout << "\n[2] NO ";
+            cout << "\n>> ";
+            cin >> choice;
+            switch (choice)
+            {
+
+            case 1:
+                cout << "\nHow many?";
+                cout << "\n>> ";
+                cin >> qty;
+                addToCart(code[2][0], qty);
+                break;
+            case 2:
+                break;
+            default:
+                sanitizeInput();
+            }
             break;
         case 2:
-            // YOUR CODE HERE
+            cout << "\n* * * * * * * * Specification * * * * * * * * * *";
+            cout << "\n*               ATX Form Factor                 *";
+            cout << "\n*               AMD X370 Chipset                *";
+            cout << "\n*                  AM4 Socket                   *";
+            cout << "\n*        4 x Dual-Channel DDR4-3200 (OC)        *";
+            cout << "\n*               Price: Php 3,600                *";
+            cout << "\n* * * * * * * * * * * * * * * * * * * * * * * * *";
+            cout << "\n Would you like to buy?";
+            cout << "\n[1] YES ";
+            cout << "\n[2] NO ";
+            cout << "\n>> ";
+            cin >> choice;
+            switch (choice)
+            {
+
+            case 1:
+                cout << "\n How many?";
+                cout << "\n>> ";
+                cin >> qty;
+                addToCart(code[2][1], qty);
+                break;
+            case 2:
+                // YOUR CODE HERE
+                break;
+            default:
+                sanitizeInput();
+            }
             break;
         case 3:
             end = true;
@@ -225,6 +341,7 @@ void moboStream()
 
 void cart()
 {
+    bool cartCheck = false;
     int choice;
     int cartChoice;
     int qty;
@@ -232,6 +349,24 @@ void cart()
     bool end = false;
     do
     {
+        costFinder();
+        for (int i = 0; i < 6; i++)
+        {
+            if (cartValue[i] > 0)
+            {
+                cartCheck = true;
+                break;
+            }
+            else
+            {
+                cartCheck = false;
+            }
+        }
+        if (!cartCheck)
+        {
+            cout << "There are no items in the cart!" << endl;
+            break;
+        }
         cout << "Cart:" << endl;
         cout << "Product       qty          cost " << endl;
         for (int i = 0; i < 6; i++)
@@ -263,6 +398,8 @@ void cart()
                 }
             }
         }
+        cout << "                         ------------------" << endl;
+        cout << "               Final Cost: Php " << finalCost << "    " << endl;
         cout << "\nWhat would you like to do?" << endl;
         cout << "[1] Check out" << endl;
         cout << "[2] Remove an item / Change Quantity" << endl;
@@ -273,7 +410,6 @@ void cart()
         {
         case 1:
             receipt();
-            exit(0);
             break;
         case 2:
             cout << "What would you like to change?" << endl;
@@ -313,6 +449,7 @@ void cart()
                     }
                 }
             }
+
             cout << ">> ";
             cin >> choice; //VALIDATE
 
@@ -588,51 +725,62 @@ void cart()
 
 void receipt()
 {
-    int finalCost = 0;
-    for (int i = 0; i < 6; i++)
-    {
-        finalCost += prices[i] * cartValue[i];
-    }
+    float balance = 0;
+    costFinder();
 
-    cout << "\n-------------------------------------" << endl;
-    cout << "         Techware PC Express       " << endl;
-    cout << "     ----------------------------     " << endl;
-    cout << "Product       qty          cost " << endl;
-    for (int i = 0; i < 6; i++)
+    cout << "Please input your balance (Php)" << endl;
+    cout << ">> ";
+    cin >> balance;
+
+    if (balance >= finalCost)
     {
-        if (cartValue[i] != 0)
+        cout << "\n-------------------------------------" << endl;
+        cout << "         Techware PC Express       " << endl;
+        cout << "     ----------------------------     " << endl;
+        cout << "Product       qty          cost " << endl;
+        for (int i = 0; i < 6; i++)
         {
-            switch (i)
+            if (cartValue[i] != 0)
             {
-            case 0:
-                cout << code[0][0].substr(0, 3) << "           " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
-                break;
-            case 1:
-                cout << code[0][1].substr(0, 3) << "           " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
-                break;
-            case 2:
-                cout << code[1][0].substr(0, 8) << "      " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
-                break;
-            case 3:
-                cout << code[1][1].substr(0, 8) << "      " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
-                break;
-            case 4:
-                cout << code[2][0].substr(0, 4) << "          " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
-                break;
-            case 5:
-                cout << code[2][1].substr(0, 4) << "          " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
-                break;
-            default:
-                break;
+                switch (i)
+                {
+                case 0:
+                    cout << code[0][0].substr(0, 3) << "           " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
+                    break;
+                case 1:
+                    cout << code[0][1].substr(0, 3) << "           " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
+                    break;
+                case 2:
+                    cout << code[1][0].substr(0, 8) << "      " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
+                    break;
+                case 3:
+                    cout << code[1][1].substr(0, 8) << "      " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
+                    break;
+                case 4:
+                    cout << code[2][0].substr(0, 4) << "          " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
+                    break;
+                case 5:
+                    cout << code[2][1].substr(0, 4) << "          " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           Php " << (prices[i] * cartValue[i]) << "    " << endl;
+                    break;
+                default:
+                    break;
+                }
             }
         }
+        cout << "                        -------------" << endl;
+        cout << "               Final Cost: Php " << finalCost << "    " << endl;
+        cout << "                  Balance: Php " << balance << "    " << endl;
+        cout << "                   Change: Php " << (balance -= finalCost) << "    " << endl;
+        cout << "-------------------------------------" << endl;
+        cout << "              Thank you            " << endl;
+        cout << "        for Shopping with us!      " << endl;
+        cout << "-------------------------------------" << endl;
+        exit(0);
     }
-    cout << "                        -------------" << endl;
-    cout << "               Final Cost: Php " << finalCost << "    " << endl;
-    cout << "-------------------------------------" << endl;
-    cout << "              Thank you            " << endl;
-    cout << "        for Shopping with us!      " << endl;
-    cout << "-------------------------------------" << endl;
+    else
+    {
+        cout << "Insufficient Balance! Please edit your cart." << endl;
+    }
 }
 
 void addToCart(string type, int quantity)
@@ -679,8 +827,16 @@ void addToCart(string type, int quantity)
     {
         cout << "Error 404: Not found!" << endl;
     }
+}
 
-    cout << type << endl;
+void costFinder()
+{
+    float temp = 0;
+    for (int i = 0; i < 6; i++)
+    {
+        temp += prices[i] * cartValue[i];
+    }
+    finalCost = temp;
 }
 
 void sanitizeInput()
