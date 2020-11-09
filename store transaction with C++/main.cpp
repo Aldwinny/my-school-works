@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <windows.h>
 
 using namespace std;
 
@@ -15,12 +14,10 @@ void addToCart(string, int);
 void sanitizeInput();
 
 //List of items
-string gpuCode[] = {"GTX 1650 super", "RX 570"};
-string cpuCode[] = {"Intel i3 9th gen", "Intel i5 9th gen"};
-string moboCode[] = {"MSI A320m- PRO V2", "ASUS ROG Crosshair VI Hero"};
+string code[3][2] = {{"GTX 1650 super", "RX 570"}, {"Intel i3 9th gen", "Intel i5 9th gen"}, {"MSI A320m- PRO V2", "ASUS ROG Crosshair VI Hero"}};
 
 //Integer array for the cart
-int cartValue[6] = {0, 2, 3, 45, 4, 6};
+int cartValue[6] = {0, 0, 0, 0, 0, 0};
 
 main()
 {
@@ -98,8 +95,8 @@ void gpuStream()
     do
     {
         cout << "GPU Section" << endl;
-        cout << "[1] " << gpuCode[0] << endl;
-        cout << "[2] " << gpuCode[1] << endl;
+        cout << "[1] " << code[0][0] << endl;
+        cout << "[2] " << code[0][1] << endl;
         cout << "[3] Exit" << endl;
         cout << ">> ";
         cin >> choice;
@@ -142,8 +139,8 @@ void cpuStream()
     do
     {
         cout << "CPU Section" << endl;
-        cout << "[1] " << cpuCode[0] << endl;
-        cout << "[2] " << cpuCode[1] << endl;
+        cout << "[1] " << code[1][0] << endl;
+        cout << "[2] " << code[1][1] << endl;
         cout << "[3] Exit" << endl;
         cout << ">> ";
         cin >> choice;
@@ -186,8 +183,8 @@ void moboStream()
     do
     {
         cout << "Motherboards Section" << endl;
-        cout << "[1]" << moboCode[0] << endl;
-        cout << "[2]" << moboCode[1] << endl;
+        cout << "[1]" << code[2][0] << endl;
+        cout << "[2]" << code[2][1] << endl;
         cout << "[3] Exit" << endl;
         cout << ">> ";
         cin >> choice;
@@ -221,20 +218,102 @@ void moboStream()
 
 void cart()
 {
-    //ALDWIN WILL EDIT THIS TO WORK
-    cout << "Product       qty          cost " << endl;
-    cout << "-             -            -    " << endl;
-    cout << "-             -            -    " << endl;
+    int choice;
+    bool end = false;
+    do
+    {
+        cout << "Cart:" << endl;
+        cout << "Product       qty          cost " << endl;
+        for (int i = 0; i < 6; i++)
+        {
+            if (cartValue[i] != 0)
+            {
+                switch (i)
+                {
+                case 0:
+                    cout << code[0][0].substr(0, 3) << "           " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                    break;
+                case 1:
+                    cout << code[0][1].substr(0, 3) << "           " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                    break;
+                case 2:
+                    cout << code[1][0].substr(0, 8) << "      " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                    break;
+                case 3:
+                    cout << code[1][1].substr(0, 8) << "      " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                    break;
+                case 4:
+                    cout << code[2][0].substr(0, 4) << "          " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                    break;
+                case 5:
+                    cout << code[2][1].substr(0, 4) << "          " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                    break;
+                default:
+                    break;
+                }
+            }
+        }
+        cout << "\nWhat would you like to do?" << endl;
+        cout << "[1] Check out" << endl;
+        cout << "[2] Remove an item / Change Quantity" << endl;
+        cout << "[3] Exit" << endl;
+        cout << ">> ";
+        cin >> choice;
+        switch (choice)
+        {
+        case 1:
+            receipt();
+            exit(0);
+            break;
+        case 2:
+            //DO something
+            break;
+        case 3:
+            end = true;
+            break;
+        default:
+            sanitizeInput();
+            break;
+        }
+    } while (!end);
 }
 
 void receipt()
 {
-    cout << "--------------------------------" << endl;
+
+    cout << "\n--------------------------------" << endl;
     cout << "      Techware PC Express       " << endl;
     cout << "    -----------------------     " << endl;
     cout << "Product       qty          cost " << endl;
-    cout << "-             -            -    " << endl;
-    cout << "-             -            -    " << endl;
+    for (int i = 0; i < 6; i++)
+    {
+        if (cartValue[i] != 0)
+        {
+            switch (i)
+            {
+            case 0:
+                cout << code[0][0].substr(0, 3) << "           " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                break;
+            case 1:
+                cout << code[0][1].substr(0, 3) << "           " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                break;
+            case 2:
+                cout << code[1][0].substr(0, 8) << "      " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                break;
+            case 3:
+                cout << code[1][1].substr(0, 8) << "      " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                break;
+            case 4:
+                cout << code[2][0].substr(0, 4) << "          " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                break;
+            case 5:
+                cout << code[2][1].substr(0, 4) << "          " << cartValue[i] << (cartValue[i] >= 10 ? "" : " ") << "           -    " << endl;
+                break;
+            default:
+                break;
+            }
+        }
+    }
     cout << "                        --------" << endl;
     cout << "               Final Cost: -    " << endl;
     cout << "--------------------------------" << endl;
@@ -245,7 +324,50 @@ void receipt()
 
 void addToCart(string type, int quantity)
 {
-    cout << "User added to cart " << quantity << " " << type << endl;
+    if (type == code[0][0] || type == code[0][1])
+    {
+        if (type == code[0][0])
+        {
+            cartValue[0] = quantity;
+        }
+        else
+        {
+            cartValue[1] = quantity;
+        }
+        cout << "User added to cart " << quantity << " " << type << endl;
+    }
+    else if (type == code[1][0] || type == code[1][1])
+    {
+
+        if (type == code[1][0])
+        {
+            cartValue[2] = quantity;
+        }
+        else
+        {
+            cartValue[3] = quantity;
+        }
+        cout << "User added to cart " << quantity << " " << type << endl;
+    }
+    else if (type == code[2][0] || type == code[2][1])
+    {
+
+        if (type == code[2][0])
+        {
+            cartValue[4] = quantity;
+        }
+        else
+        {
+            cartValue[5] = quantity;
+        }
+        cout << "User added to cart " << quantity << " " << type << endl;
+    }
+    else
+    {
+        cout << "Error 404: Not found!" << endl;
+    }
+
+    cout << type << endl;
 }
 
 void sanitizeInput()
