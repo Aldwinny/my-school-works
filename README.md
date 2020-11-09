@@ -9,4 +9,6 @@ No website has been posted here yet
 
 ## C++
 
-Coming soon..
+1. Store transaction with C++
+
+A simple store transaction console program with C++
