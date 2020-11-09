@@ -254,5 +254,4 @@ void sanitizeInput()
     cin.ignore(10000, '\n');
     cout << "\nInvalid Input, Please try again!\n"
          << endl;
-    Sleep(2000); //Wait for 2 seconds or 2000ms
 }
