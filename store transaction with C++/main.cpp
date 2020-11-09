@@ -14,11 +14,11 @@ void addToCart(string, int);
 void sanitizeInput();
 
 //List of items
-string code[3][2] = {{"GTX 1650 super", "RX 570"}, {"Intel i3 9th gen", "Intel i5 9th gen"}, {"MSI A320m- PRO V2", "ASUS ROG Crosshair VI Hero"}};
+const string code[3][2] = {{"GTX 1650 super", "RX 570"}, {"Intel i3 9th gen", "Intel i5 9th gen"}, {"MSI A320m- PRO V2", "ASUS ROG Crosshair VI Hero"}};
 
 //Integer array for the cart
 int cartValue[6] = {0, 0, 0, 0, 0, 0};
-float prices[6] = {147, 1, 1, 1, 1, 1};
+const float prices[6] = {147, 1, 1, 1, 1, 1};
 
 main()
 {
@@ -26,6 +26,10 @@ main()
     int choice;
 
     addToCart(code[0][0], 3);
+    addToCart(code[1][0], 3);
+    addToCart(code[1][1], 5);
+    addToCart(code[2][0], 6);
+    addToCart(code[2][1], 7);
 
     while (loopControl)
     {
@@ -222,6 +226,9 @@ void moboStream()
 void cart()
 {
     int choice;
+    int cartChoice;
+    int qty;
+    int counter = 1;
     bool end = false;
     do
     {
@@ -269,7 +276,284 @@ void cart()
             exit(0);
             break;
         case 2:
-            //DO something
+            cout << "What would you like to change?" << endl;
+            counter = 1;
+            for (int i = 0; i < 6; i++)
+            {
+                if (cartValue[i] > 0)
+                {
+                    switch (i)
+                    {
+                    case 0:
+                        cout << "[" << counter << "] " << code[0][0] << endl;
+                        counter++;
+                        break;
+                    case 1:
+                        cout << "[" << counter << "] " << code[0][1] << endl;
+                        counter++;
+                        break;
+                    case 2:
+                        cout << "[" << counter << "] " << code[1][0] << endl;
+                        counter++;
+                        break;
+                    case 3:
+                        cout << "[" << counter << "] " << code[1][1] << endl;
+                        counter++;
+                        break;
+                    case 4:
+                        cout << "[" << counter << "] " << code[2][0] << endl;
+                        counter++;
+                        break;
+                    case 5:
+                        cout << "[" << counter << "] " << code[2][1] << endl;
+                        counter++;
+                        break;
+                    default:
+                        break;
+                    }
+                }
+            }
+            cout << ">> ";
+            cin >> choice; //VALIDATE
+
+            counter = 1;
+            for (int i = 0; i < 6; i++)
+            {
+                if (cartValue[i] > 0)
+                {
+                    switch (i)
+                    {
+                    case 0:
+                        if (counter == choice)
+                        {
+                            cout << code[0][0] << " has been selected" << endl;
+                            cout << "[1] Remove" << endl;
+                            cout << "[2] Change quantity" << endl;
+                            cout << "[3] Exit" << endl;
+                            cin >> cartChoice;
+                            switch (cartChoice)
+                            {
+                            case 1:
+                                cartValue[i] = 0;
+                                cout << "Done" << endl;
+                                break;
+                            case 2:
+                                cout << "Please enter quantity: " << endl;
+                                cout << ">> " << endl;
+                                cin >> qty;
+                                if (qty > -1 && qty < 100)
+                                {
+                                    addToCart(code[0][0], qty);
+                                }
+                                else
+                                {
+                                    sanitizeInput(); //REPEAT LOOP
+                                }
+                                break;
+                            case 3:
+                                //BREAK LOOP
+                                break;
+                            default:
+                                sanitizeInput();
+                                break;
+                            }
+                        }
+                        counter++;
+                        break;
+                    case 1:
+                        if (counter == choice)
+                        {
+                            cout << code[0][1] << " has been selected" << endl;
+                            cout << "[1] Remove" << endl;
+                            cout << "[2] Change quantity" << endl;
+                            cout << "[3] Exit" << endl;
+                            cin >> cartChoice;
+                            switch (cartChoice)
+                            {
+                            case 1:
+                                cartValue[i] = 0;
+                                cout << "Done" << endl;
+                                break;
+                            case 2:
+                                cout << "Please enter quantity: " << endl;
+                                cout << ">> " << endl;
+                                cin >> qty;
+                                if (qty > -1 && qty < 100)
+                                {
+                                    addToCart(code[0][1], qty);
+                                }
+                                else
+                                {
+                                    sanitizeInput(); //REPEAT LOOP
+                                }
+                                break;
+                            case 3:
+                                //BREAK LOOP
+                                break;
+                            default:
+                                sanitizeInput();
+                                break;
+                            }
+                        }
+                        counter++;
+                        break;
+
+                    case 2:
+                        if (counter == choice)
+                        {
+                            cout << code[1][0] << " has been selected" << endl;
+                            cout << "[1] Remove" << endl;
+                            cout << "[2] Change quantity" << endl;
+                            cout << "[3] Exit" << endl;
+                            cin >> cartChoice;
+                            switch (cartChoice)
+                            {
+                            case 1:
+                                cartValue[i] = 0;
+                                cout << "Done" << endl;
+                                break;
+                            case 2:
+                                cout << "Please enter quantity: " << endl;
+                                cout << ">> " << endl;
+                                cin >> qty;
+                                if (qty > -1 && qty < 100)
+                                {
+                                    addToCart(code[1][0], qty);
+                                }
+                                else
+                                {
+                                    sanitizeInput(); //REPEAT LOOP
+                                }
+                                break;
+                            case 3:
+                                //BREAK LOOP
+                                break;
+                            default:
+                                sanitizeInput();
+                                break;
+                            }
+                        }
+                        counter++;
+                        break;
+
+                    case 3:
+                        if (counter == choice)
+                        {
+                            cout << code[1][1] << " has been selected" << endl;
+                            cout << "[1] Remove" << endl;
+                            cout << "[2] Change quantity" << endl;
+                            cout << "[3] Exit" << endl;
+                            cin >> cartChoice;
+                            switch (cartChoice)
+                            {
+                            case 1:
+                                cartValue[i] = 0;
+                                cout << "Done" << endl;
+                                break;
+                            case 2:
+                                cout << "Please enter quantity: " << endl;
+                                cout << ">> " << endl;
+                                cin >> qty;
+                                if (qty > -1 && qty < 100)
+                                {
+                                    addToCart(code[1][1], qty);
+                                }
+                                else
+                                {
+                                    sanitizeInput(); //REPEAT LOOP
+                                }
+                                break;
+                            case 3:
+                                //BREAK LOOP
+                                break;
+                            default:
+                                sanitizeInput();
+                                break;
+                            }
+                        }
+                        counter++;
+                        break;
+
+                    case 4:
+                        if (counter == choice)
+                        {
+                            cout << code[2][0] << " has been selected" << endl;
+                            cout << "[1] Remove" << endl;
+                            cout << "[2] Change quantity" << endl;
+                            cout << "[3] Exit" << endl;
+                            cin >> cartChoice;
+                            switch (cartChoice)
+                            {
+                            case 1:
+                                cartValue[i] = 0;
+                                cout << "Done" << endl;
+                                break;
+                            case 2:
+                                cout << "Please enter quantity: " << endl;
+                                cout << ">> " << endl;
+                                cin >> qty;
+                                if (qty > -1 && qty < 100)
+                                {
+                                    addToCart(code[2][0], qty);
+                                }
+                                else
+                                {
+                                    sanitizeInput(); //REPEAT LOOP
+                                }
+                                break;
+                            case 3:
+                                //BREAK LOOP
+                                break;
+                            default:
+                                sanitizeInput();
+                                break;
+                            }
+                        }
+                        counter++;
+                        break;
+
+                    case 5:
+                        if (counter == choice)
+                        {
+                            cout << code[2][1] << " has been selected" << endl;
+                            cout << "[1] Remove" << endl;
+                            cout << "[2] Change quantity" << endl;
+                            cout << "[3] Exit" << endl;
+                            cin >> cartChoice;
+                            switch (cartChoice)
+                            {
+                            case 1:
+                                cartValue[i] = 0;
+                                cout << "Done" << endl;
+                                break;
+                            case 2:
+                                cout << "Please enter quantity: " << endl;
+                                cout << ">> " << endl;
+                                cin >> qty;
+                                if (qty > -1 && qty < 100)
+                                {
+                                    addToCart(code[2][1], qty);
+                                }
+                                else
+                                {
+                                    sanitizeInput(); //REPEAT LOOP
+                                }
+                                break;
+                            case 3:
+                                //BREAK LOOP
+                                break;
+                            default:
+                                sanitizeInput();
+                                break;
+                            }
+                        }
+                        counter++;
+                        break;
+                    default:
+                        break;
+                    }
+                }
+            }
             break;
         case 3:
             end = true;
