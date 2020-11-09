@@ -339,7 +339,7 @@ void cart()
                                 break;
                             case 2:
                                 cout << "Please enter quantity: " << endl;
-                                cout << ">> " << endl;
+                                cout << ">> ";
                                 cin >> qty;
                                 if (qty > -1 && qty < 100)
                                 {
@@ -351,7 +351,7 @@ void cart()
                                 }
                                 break;
                             case 3:
-                                //BREAK LOOP
+                                //BREAKS LOOP
                                 break;
                             default:
                                 sanitizeInput();
@@ -375,20 +375,24 @@ void cart()
                                 cout << "Done" << endl;
                                 break;
                             case 2:
-                                cout << "Please enter quantity: " << endl;
-                                cout << ">> " << endl;
-                                cin >> qty;
-                                if (qty > -1 && qty < 100)
+                                do
                                 {
-                                    addToCart(code[0][1], qty);
-                                }
-                                else
-                                {
-                                    sanitizeInput(); //REPEAT LOOP
-                                }
+                                    cout << "Please enter quantity: " << endl;
+                                    cout << ">> ";
+                                    cin >> qty;
+                                    if (qty > -1 && qty < 100)
+                                    {
+                                        addToCart(code[0][1], qty);
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        sanitizeInput(); //REPEAT LOOP
+                                    }
+                                } while (true);
                                 break;
                             case 3:
-                                //BREAK LOOP
+                                //BREAKS LOOP
                                 break;
                             default:
                                 sanitizeInput();
@@ -413,20 +417,24 @@ void cart()
                                 cout << "Done" << endl;
                                 break;
                             case 2:
-                                cout << "Please enter quantity: " << endl;
-                                cout << ">> " << endl;
-                                cin >> qty;
-                                if (qty > -1 && qty < 100)
+                                do
                                 {
-                                    addToCart(code[1][0], qty);
-                                }
-                                else
-                                {
-                                    sanitizeInput(); //REPEAT LOOP
-                                }
+                                    cout << "Please enter quantity: " << endl;
+                                    cout << ">> ";
+                                    cin >> qty;
+                                    if (qty > -1 && qty < 100)
+                                    {
+                                        addToCart(code[1][0], qty);
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        sanitizeInput(); //REPEAT LOOP
+                                    }
+                                } while (true);
                                 break;
                             case 3:
-                                //BREAK LOOP
+                                //BREAKS LOOP
                                 break;
                             default:
                                 sanitizeInput();
@@ -451,20 +459,24 @@ void cart()
                                 cout << "Done" << endl;
                                 break;
                             case 2:
-                                cout << "Please enter quantity: " << endl;
-                                cout << ">> " << endl;
-                                cin >> qty;
-                                if (qty > -1 && qty < 100)
+                                do
                                 {
-                                    addToCart(code[1][1], qty);
-                                }
-                                else
-                                {
-                                    sanitizeInput(); //REPEAT LOOP
-                                }
+                                    cout << "Please enter quantity: " << endl;
+                                    cout << ">> ";
+                                    cin >> qty;
+                                    if (qty > -1 && qty < 100)
+                                    {
+                                        addToCart(code[1][1], qty);
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        sanitizeInput(); //REPEAT LOOP
+                                    }
+                                } while (true);
                                 break;
                             case 3:
-                                //BREAK LOOP
+                                //BREAKS LOOP
                                 break;
                             default:
                                 sanitizeInput();
@@ -489,20 +501,24 @@ void cart()
                                 cout << "Done" << endl;
                                 break;
                             case 2:
-                                cout << "Please enter quantity: " << endl;
-                                cout << ">> " << endl;
-                                cin >> qty;
-                                if (qty > -1 && qty < 100)
+                                do
                                 {
-                                    addToCart(code[2][0], qty);
-                                }
-                                else
-                                {
-                                    sanitizeInput(); //REPEAT LOOP
-                                }
+                                    cout << "Please enter quantity: " << endl;
+                                    cout << ">> ";
+                                    cin >> qty;
+                                    if (qty > -1 && qty < 100)
+                                    {
+                                        addToCart(code[2][0], qty);
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        sanitizeInput(); //REPEAT LOOP
+                                    }
+                                } while (true);
                                 break;
                             case 3:
-                                //BREAK LOOP
+                                //BREAKS LOOP
                                 break;
                             default:
                                 sanitizeInput();
@@ -527,20 +543,24 @@ void cart()
                                 cout << "Done" << endl;
                                 break;
                             case 2:
-                                cout << "Please enter quantity: " << endl;
-                                cout << ">> " << endl;
-                                cin >> qty;
-                                if (qty > -1 && qty < 100)
+                                do
                                 {
-                                    addToCart(code[2][1], qty);
-                                }
-                                else
-                                {
-                                    sanitizeInput(); //REPEAT LOOP
-                                }
+                                    cout << "Please enter quantity: " << endl;
+                                    cout << ">> ";
+                                    cin >> qty;
+                                    if (qty > -1 && qty < 100)
+                                    {
+                                        addToCart(code[2][1], qty);
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        sanitizeInput(); //REPEAT LOOP
+                                    }
+                                } while (true);
                                 break;
                             case 3:
-                                //BREAK LOOP
+                                //BREAKS LOOP
                                 break;
                             default:
                                 sanitizeInput();
@@ -550,6 +570,7 @@ void cart()
                         counter++;
                         break;
                     default:
+                        sanitizeInput();
                         break;
                     }
                 }
@@ -567,10 +588,15 @@ void cart()
 
 void receipt()
 {
+    int finalCost = 0;
+    for (int i = 0; i < 6; i++)
+    {
+        finalCost += prices[i] * cartValue[i];
+    }
 
-    cout << "\n--------------------------------" << endl;
-    cout << "      Techware PC Express       " << endl;
-    cout << "    -----------------------     " << endl;
+    cout << "\n-------------------------------------" << endl;
+    cout << "         Techware PC Express       " << endl;
+    cout << "     ----------------------------     " << endl;
     cout << "Product       qty          cost " << endl;
     for (int i = 0; i < 6; i++)
     {
@@ -601,12 +627,12 @@ void receipt()
             }
         }
     }
-    cout << "                        --------" << endl;
-    cout << "               Final Cost: -    " << endl;
-    cout << "--------------------------------" << endl;
-    cout << "           Thank you            " << endl;
-    cout << "     for Shopping with us!      " << endl;
-    cout << "--------------------------------" << endl;
+    cout << "                        -------------" << endl;
+    cout << "               Final Cost: Php " << finalCost << "    " << endl;
+    cout << "-------------------------------------" << endl;
+    cout << "              Thank you            " << endl;
+    cout << "        for Shopping with us!      " << endl;
+    cout << "-------------------------------------" << endl;
 }
 
 void addToCart(string type, int quantity)
