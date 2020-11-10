@@ -3,6 +3,7 @@
 
 using namespace std;
 
+//Decleration
 int menu();
 bool stream(int);
 void gpuStream();
@@ -33,7 +34,7 @@ main()
         loopControl = stream(choice);
     }
 }
-
+//Main menu
 int menu()
 {
     int temp;
@@ -86,7 +87,7 @@ bool stream(int choice)
     }
     return true;
 }
-
+// GPU Menu
 void gpuStream()
 {
     int choice;
@@ -98,6 +99,7 @@ void gpuStream()
     cout << "***************************" << endl;
     do
     {
+        //Choices
         cout << "GPU Section" << endl;
         cout << "[1] " << code[0][0] << endl;
         cout << "[2] " << code[0][1] << endl;
@@ -107,7 +109,7 @@ void gpuStream()
 
         switch (choice)
         {
-
+        //Asking If he/she wants to buy
         case 1:
             cout << "\n* * * * * * * Specification * * * * * * * ";
             cout << "\n*  Architecture : Turning Shaders       * ";
@@ -123,19 +125,21 @@ void gpuStream()
             cin >> choice;
             switch (choice)
             {
-
+            //Asking the quantity
             case 1:
                 cout << "\nHow many?";
                 cout << "\n>> ";
                 cin >> qty;
                 addToCart(code[0][0], qty);
                 break;
+            //Returns to product section
             case 2:
                 break;
             default:
                 sanitizeInput();
             }
             break;
+        //Asking if he/she wants to buy
         case 2:
             cout << "\n* * * * * * * * Specification * * * * * * * * * *";
             cout << "\n*  Engine Clock       : Up to 1284 Mhz, Boost   * ";
@@ -152,18 +156,21 @@ void gpuStream()
             switch (choice)
             {
 
+            //Asking the quantity
             case 1:
                 cout << "\n How many?";
                 cout << "\n>> ";
                 cin >> qty;
                 addToCart(code[0][1], qty);
                 break;
+            //Returns to product section
             case 2:
                 break;
             default:
                 sanitizeInput();
             }
             break;
+        //Returns to main menu
         case 3:
             end = true;
             break;
@@ -173,6 +180,7 @@ void gpuStream()
     } while (!end);
 }
 
+//CPU Section
 void cpuStream()
 {
     int choice;
@@ -193,7 +201,8 @@ void cpuStream()
 
         switch (choice)
         {
-        case 1:
+        //Asking if he/she wants to buy
+        case 1: // Show the specs of the given product
             cout << "\n* * * * * * * Specification * * * * * * * ";
             cout << "\n*             Name: i3-9100             * ";
             cout << "\n*   Base Frequency: 3.60Ghz             * ";
@@ -211,19 +220,22 @@ void cpuStream()
             cin >> choice;
             switch (choice)
             {
+                //Asking the quantity
             case 1:
                 cout << "\nHow many?";
                 cout << "\n>> ";
                 cin >> qty;
                 addToCart(code[1][0], qty);
                 break;
+                //Return to main window
             case 2:
                 break;
             default:
                 sanitizeInput();
             }
             break;
-        case 2:
+        //Asking if he/she wants to buy
+        case 2: // Show the specs of the given product
             cout << "\n* * * * * * * Specification * * * * * * * ";
             cout << "\n*             Name: i5-9400             * ";
             cout << "\n*   Base Frequency: 2.90Ghz             * ";
@@ -241,18 +253,21 @@ void cpuStream()
             cin >> choice;
             switch (choice)
             {
+                // Asking quantity
             case 1:
                 cout << "\nHow many?";
                 cout << "\n>> ";
                 cin >> qty;
                 addToCart(code[1][1], qty);
                 break;
+            //Returns to product section
             case 2:
                 break;
             default:
                 sanitizeInput();
             }
             break;
+        //Returns to main menu
         case 3:
             end = true;
             break;
@@ -262,6 +277,7 @@ void cpuStream()
     } while (!end);
 }
 
+//Motherboard Section
 void moboStream()
 {
     int choice;
@@ -273,6 +289,7 @@ void moboStream()
     cout << "***************************" << endl;
     do
     {
+        //Choices
         cout << "Motherboards Section" << endl;
         cout << "[1] " << code[2][0] << endl;
         cout << "[2] " << code[2][1] << endl;
@@ -282,8 +299,8 @@ void moboStream()
 
         switch (choice)
         {
-
-        case 1:
+        //Asking if he/she wants to buy
+        case 1: // Show the specs of the given product
             cout << "\n* * * * * * * Specification * * * * * * * ";
             cout << "\n*           Micro-ATX Form Factor       * ";
             cout << "\n*            AMD A320 Chipset           * ";
@@ -298,20 +315,22 @@ void moboStream()
             cin >> choice;
             switch (choice)
             {
-
+            // Asking quantity
             case 1:
                 cout << "\nHow many?";
                 cout << "\n>> ";
                 cin >> qty;
                 addToCart(code[2][0], qty);
                 break;
+            //Returns to product section
             case 2:
                 break;
             default:
                 sanitizeInput();
             }
             break;
-        case 2:
+            //Asking if he/she wants to buy
+        case 2: // Show the specs of the given product
             cout << "\n* * * * * * * * Specification * * * * * * * * * *";
             cout << "\n*               ATX Form Factor                 *";
             cout << "\n*               AMD X370 Chipset                *";
@@ -326,19 +345,21 @@ void moboStream()
             cin >> choice;
             switch (choice)
             {
-
+            //Asking the quantity
             case 1:
                 cout << "\n How many?";
                 cout << "\n>> ";
                 cin >> qty;
                 addToCart(code[2][1], qty);
                 break;
+                //Returns to products section
             case 2:
                 break;
             default:
                 sanitizeInput();
             }
             break;
+            //Returns to main menu
         case 3:
             end = true;
             break;
@@ -348,6 +369,7 @@ void moboStream()
     } while (!end);
 }
 
+//Cart Section
 void cart()
 {
     bool cartCheck = false;
@@ -732,6 +754,7 @@ void cart()
     } while (!end);
 }
 
+//Receipt Section
 void receipt()
 {
     float balance = 0;
@@ -848,6 +871,7 @@ void costFinder()
     finalCost = temp;
 }
 
+//Repeat Loop
 void sanitizeInput()
 {
     cin.clear();
