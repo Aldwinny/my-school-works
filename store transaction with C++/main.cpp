@@ -195,7 +195,13 @@ void cpuStream()
         {
         case 1:
             cout << "\n* * * * * * * Specification * * * * * * * ";
-            cout << "\n*               NOT FOUND               * ";
+            cout << "\n*             Name: i3-9100             * ";
+            cout << "\n*   Base Frequency: 3.60Ghz             * ";
+            cout << "\n*    Max frequency: 4.20Ghz             * ";
+            cout << "\n*       # of cores: 4                   * ";
+            cout << "\n*            Cache: 6MB smart cache     * ";
+            cout << "\n*               Graphics                * ";
+            cout << "\n*       Intel UHD Graphics 630          * ";
             cout << "\n*            Price: Php 3,840           * ";
             cout << "\n* * * * * * * * * * * * * * * * * * * * * ";
             cout << "\n Would you like to buy?";
@@ -205,7 +211,6 @@ void cpuStream()
             cin >> choice;
             switch (choice)
             {
-
             case 1:
                 cout << "\nHow many?";
                 cout << "\n>> ";
@@ -220,7 +225,13 @@ void cpuStream()
             break;
         case 2:
             cout << "\n* * * * * * * Specification * * * * * * * ";
-            cout << "\n*               NOT FOUND               * ";
+            cout << "\n*             Name: i5-9400             * ";
+            cout << "\n*   Base Frequency: 2.90Ghz             * ";
+            cout << "\n*    Max frequency: 4.10Ghz             * ";
+            cout << "\n*       # of cores: 6                   * ";
+            cout << "\n*            Cache: 9MB smart cache     * ";
+            cout << "\n*               Graphics                * ";
+            cout << "\n*       Intel UHD Graphics 630          * ";
             cout << "\n*           Price: Php 10,000           * ";
             cout << "\n* * * * * * * * * * * * * * * * * * * * * ";
             cout << "\n Would you like to buy?";
@@ -241,7 +252,6 @@ void cpuStream()
             default:
                 sanitizeInput();
             }
-            break;
             break;
         case 3:
             end = true;
@@ -324,7 +334,6 @@ void moboStream()
                 addToCart(code[2][1], qty);
                 break;
             case 2:
-                // YOUR CODE HERE
                 break;
             default:
                 sanitizeInput();
