@@ -3,7 +3,7 @@
 
 using namespace std;
 
-//Decleration
+//Declaration of functions
 int menu();
 bool stream(int);
 void gpuStream();
@@ -15,7 +15,7 @@ void addToCart(string, int);
 void costFinder();
 void sanitizeInput();
 
-//List of items
+//List of items as multidim array
 const string code[3][2] = {{"GTX 1650 super", "RX 570"}, {"Intel i3 9th gen", "Intel i5 9th gen"}, {"MSI A320m- PRO V2", "ASUS ROG Crosshair VI Hero"}};
 
 //Integer array for the cart
